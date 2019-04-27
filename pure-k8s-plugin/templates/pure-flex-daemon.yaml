@@ -73,8 +73,10 @@ spec:
             value: "{{ .Values.flasharray.preemptAttachments }}"
           - name: PURE_ISCSI_ALLOWED_CIDRS
             value: "{{ .Values.flasharray.iSCSIAllowedCIDR }}"
+{{- if .Values.flasharray.iSCSILoginTimeout }}
           - name: PURE_ISCSI_LOGIN_TIMEOUT
             value: "{{ .Values.flasharray.iSCSILoginTimeout }}"
+{{- end}}
       volumes:
         - name: config
           secret:
